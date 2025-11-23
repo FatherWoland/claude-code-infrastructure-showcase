@@ -28,6 +28,14 @@ Born from 6 months of real-world use managing a complex TypeScript microservices
 
 **Claude:** Read [`CLAUDE_INTEGRATION_GUIDE.md`](CLAUDE_INTEGRATION_GUIDE.md) for step-by-step integration instructions tailored for AI-assisted setup.
 
+### 🏢 Industry-Specific Use Cases
+
+**Want to see this applied to your industry?**
+
+- 💼 [**Pension Industry**](use-cases/pension-industry/) - Complete guide for AI Leads in pension consultancies, legacy system modernization, and C-level strategic positioning
+
+More industry examples coming soon.
+
 ### 🎯 I want skill auto-activation
 
 **The breakthrough feature:** Skills that actually activate when you need them.

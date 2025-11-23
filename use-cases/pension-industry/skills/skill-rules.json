@@ -1,0 +1,172 @@
+{
+  "pension-calculation-standards": {
+    "type": "guardrail",
+    "enforcement": "block",
+    "description": "Enforces accuracy and audit standards for pension benefit calculations",
+    "promptTriggers": {
+      "keywords": [
+        "pension",
+        "calculation",
+        "calculate",
+        "benefit",
+        "retirement",
+        "transfer",
+        "annuity",
+        "commutation",
+        "revaluation"
+      ],
+      "intentPatterns": [
+        "(calculate|compute|determine).*?(pension|benefit|retirement)",
+        "(transfer|commutation|revaluation).*?(value|factor|amount)",
+        "how.*?(calculate|work out).*?(pension|benefit)"
+      ]
+    },
+    "fileTriggers": {
+      "pathPatterns": [
+        "**/calculations/**/*.ts",
+        "**/calculations/**/*.js",
+        "**/services/pension/**/*.ts",
+        "**/services/pension/**/*.js",
+        "**/repositories/pension/**/*.ts",
+        "**/lib/pension/**/*.ts"
+      ],
+      "contentPatterns": [
+        "calculateBenefit",
+        "pensionAmount",
+        "transferValue",
+        "commutationFactor",
+        "revaluationRate",
+        "calculatePension",
+        "calculateCARE",
+        "calculateGMP"
+      ]
+    },
+    "skipConditions": {
+      "commentMarker": "@skip-pension-standards",
+      "requiresJustification": true
+    }
+  },
+  "actuarial-domain-knowledge": {
+    "type": "domain",
+    "enforcement": "suggest",
+    "description": "UK pension schemes terminology, formulas, and domain expertise",
+    "promptTriggers": {
+      "keywords": [
+        "actuarial",
+        "actuary",
+        "GMP",
+        "CARE",
+        "defined benefit",
+        "DB scheme",
+        "final salary",
+        "career average",
+        "protected rights",
+        "contracting out",
+        "LEL",
+        "pensionable earnings",
+        "accrual rate",
+        "normal retirement date",
+        "NRD"
+      ],
+      "intentPatterns": [
+        "(what|explain|understand).*?(actuarial|pension|GMP|CARE)",
+        "how.*?(GMP|CARE|accrual|revaluation).*?work",
+        "(calculate|determine).*?(service|age|NRD)"
+      ]
+    },
+    "fileTriggers": {
+      "pathPatterns": [
+        "**/models/pension/**/*.ts",
+        "**/types/pension/**/*.ts",
+        "**/domain/pension/**/*.ts"
+      ],
+      "contentPatterns": [
+        "interface.*Pension",
+        "type.*Pension",
+        "GMP",
+        "CARE",
+        "accrualRate",
+        "pensionableService"
+      ]
+    }
+  },
+  "pension-data-validation": {
+    "type": "guardrail",
+    "enforcement": "warn",
+    "description": "Input validation for pension data to prevent calculation errors",
+    "promptTriggers": {
+      "keywords": [
+        "validate",
+        "validation",
+        "input",
+        "schema",
+        "member data",
+        "service data",
+        "salary history"
+      ],
+      "intentPatterns": [
+        "(validate|check|verify).*?(pension|member|service).*?data",
+        "(input|data).*?(validation|checking)"
+      ]
+    },
+    "fileTriggers": {
+      "pathPatterns": [
+        "**/validation/**/*.ts",
+        "**/dto/**/*.ts",
+        "**/schemas/**/*.ts",
+        "**/validators/**/*.ts"
+      ],
+      "contentPatterns": [
+        "validate",
+        "schema",
+        "z\\.",
+        "yup\\.",
+        "joi\\.",
+        "PensionInput",
+        "MemberData"
+      ]
+    },
+    "skipConditions": {
+      "commentMarker": "@skip-validation",
+      "requiresJustification": true
+    }
+  },
+  "regulatory-compliance": {
+    "type": "domain",
+    "enforcement": "suggest",
+    "description": "FCA, TPR, GDPR compliance patterns for pension systems",
+    "promptTriggers": {
+      "keywords": [
+        "FCA",
+        "TPR",
+        "GDPR",
+        "compliance",
+        "regulatory",
+        "regulator",
+        "audit trail",
+        "data protection",
+        "COBS",
+        "pension dashboard"
+      ],
+      "intentPatterns": [
+        "(comply|compliance|regulatory).*?(FCA|TPR|GDPR)",
+        "(audit|trail|log).*?(compliance|regulatory)",
+        "how.*?(comply|meet).*?(regulation|requirement)"
+      ]
+    },
+    "fileTriggers": {
+      "pathPatterns": [
+        "**/audit/**/*.ts",
+        "**/compliance/**/*.ts",
+        "**/logging/**/*.ts"
+      ],
+      "contentPatterns": [
+        "auditTrail",
+        "complianceLog",
+        "regulatoryReport",
+        "FCA",
+        "TPR"
+      ]
+    }
+  }
+}
